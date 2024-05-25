@@ -1,35 +1,42 @@
-import { render, screen } from "@testing-library/react";
 import Contact from "../Contact";
-import '@testing-library/jest-dom';
-
-// suppose if there are multiple test cases for example 20, we can group the multiple test cases into a single block known 
-// as describe
+import { render , screen} from "@testing-library/react";
+import "@testing-library/jest-dom";
 
 describe("contact us page test cases",()=>{
-    //in place of test it can also be used. It is just a nomenclature
-    test("should load contact us on to the page",()=>{
-        render(<Contact />);
+    // it is an alias for test
+    it("checking contact page has loaded",()=>{
+        render(<Contact/>);
     
-        const heading = screen.getByRole("heading");
+        const heading = screen.getByRole("heading")
     
         //assertion
         expect(heading).toBeInTheDocument();
     })
-    
-    it("should load input name inside contact component", ()=>{
-        render(<Contact />);
-    
-        const inputName = screen.getByPlaceholderText("name");
-    
-        // assertion
-        expect(inputName).toBeInTheDocument();
+    test("check if button is present in the component", ()=>{
+        render(<Contact />)
+        const button = screen.getByRole("button")
+        //assertion
+        expect(button).toBeInTheDocument();
     })
-    test("should load 2 input boxes on the contact component", ()=>{
-        render(<Contact />);
+    test("check if button is present with name submit", ()=>{
+        render(<Contact />)
     
-        const inputBoxes = screen.getAllByRole("textbox");
+        const button = screen.getByText("Submit")
+        //assertion
+        expect(button).toBeInTheDocument()
+    })
+    test("check placeholder",()=>{
+        render(<Contact />)
+        const input = screen.getByPlaceholderText("name")
+        //assertion
+        expect(input).toBeInTheDocument();
+    })
+    test("check al input boxes",()=>{
+        render(<Contact />)
     
-        // assertion
-        expect(inputBoxes.length).toBe(2);
+        const inputBoxes = screen.getAllByRole("textbox")
+        // console.log(inputBoxes.length);
+        //assertion
+        expect(inputBoxes.length).toBe(2)
     })
 })

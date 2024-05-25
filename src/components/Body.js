@@ -18,8 +18,8 @@ const Body = () => {
         const data = await fetch('https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING');
         const json = await data.json();
         // console.log(json.data);
-        setRestaurantList(json.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-        setFilterdRestaurants(json.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setRestaurantList(json.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+        setFilterdRestaurants(json.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     }
     if(onlineStatus === false){
         return <h1>Looks like you are offline. 😞</h1>

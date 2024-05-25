@@ -23,7 +23,7 @@ const AppLoyout = () =>{
 const appRouter = createBrowserRouter([
     {
         path:"/",
-        element: <Body/>,
+        element: <AppLoyout/>,
         children:[
             {
                 path:'/',
@@ -49,5 +49,5 @@ const appRouter = createBrowserRouter([
         errorElement :<Error />
     }
 ])
-root.render(<RouterProvider router={appRouter} />)
 const root = ReactDom.createRoot(document.getElementById("root"));
+root.render(<RouterProvider router={appRouter} />)

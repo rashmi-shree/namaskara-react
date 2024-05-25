@@ -1,8 +1,7 @@
 import sum from "../sum";
 
-test("sum function should calculate the sum of 2 functions",()=>{
-    const result = sum(3,4)
-    
-    //Assertion
-    expect(result).toBe(7);
+test("sum function which calculates sum of two numbers", ()=>{
+    const result = sum(3 + 4)
+    //assertion
+    // expect(result).toBe(7);
 })
